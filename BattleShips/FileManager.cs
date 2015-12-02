@@ -16,7 +16,7 @@ namespace BattleShips
 
         #region constructor
         #endregion
-
+        
         #region methods
         #endregion
     }
