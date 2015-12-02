@@ -5,3 +5,5 @@ C:\Users\DEBIASIL_INFO\Desktop\BattleShips\BattleShips\BattleShips\obj\Debug\Bat
 C:\Users\DEBIASIL_INFO\Desktop\BattleShips\BattleShips\BattleShips\obj\Debug\BattleShips.csproj.GenerateResource.Cache
 C:\Users\DEBIASIL_INFO\Desktop\BattleShips\BattleShips\BattleShips\obj\Debug\BattleShips.exe
 C:\Users\DEBIASIL_INFO\Desktop\BattleShips\BattleShips\BattleShips\obj\Debug\BattleShips.pdb
+C:\Users\DEBIASIL_INFO\Desktop\BattleShips\BattleShips\BattleShips\obj\Debug\BattleShips.Form1.resources
+C:\Users\DEBIASIL_INFO\Desktop\BattleShips\BattleShips\BattleShips\obj\Debug\BattleShips.csprojResolveAssemblyReference.cache

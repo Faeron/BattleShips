@@ -12,9 +12,16 @@ namespace BattleShips
 {
     public partial class Form1 : Form
     {
+        Game Game = new Game();
+
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            Game.OnPaint(e);
         }
     }
 }
