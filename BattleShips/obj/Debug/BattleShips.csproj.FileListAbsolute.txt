@@ -1,1 +1,2 @@
 C:\Users\DEBIASIL_INFO\Desktop\BattleShips\BattleShips\BattleShips\bin\Debug\BattleShips.exe.config
+C:\Users\SEEMULLERJ_INFO\Desktop\BattleShips\BattleShips\BattleShips\bin\Debug\BattleShips.exe.config
