@@ -1,0 +1,8 @@
+*.exe
+BattleShips/bin/Debug/BattleShips.pdb
+*.txt
+BattleShips/obj/Debug/BattleShips.csproj.GenerateResource.Cache
+BattleShips/obj/Debug/BattleShips.csproj.FileListAbsolute.txt
+*.pdb
+BattleShips/obj/Debug/BattleShips.Properties.Resources.resources
+*.txt
