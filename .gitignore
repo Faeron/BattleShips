@@ -1,0 +1,11 @@
+*.exe
+BattleShips/obj/Debug/BattleShips.csproj.FileListAbsolute.txt
+*.cache
+BattleShips/obj/Debug/BattleShips.pdb
+*.txt
+BattleShips/bin/Debug/BattleShips.pdb
+*.txt
+BattleShips/obj/Debug/BattleShips.Properties.Resources.resources
+*.txt
+BattleShips/obj/Debug/BattleShips.csproj.FileListAbsolute.txt
+BattleShips/obj/Debug/BattleShips.csproj.FileListAbsolute.txt
