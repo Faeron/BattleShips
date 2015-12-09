@@ -7,15 +7,20 @@ namespace BattleShips
     class Board
     {
         #region Fields
-        private int _size;
         private int _positionY;
-        private int _nbCell;
-        private int _cellSize;
-        int[][] _map = new int[10][];
+        private int _positionX;
+        private int _nbCellByColumn;
+        private int _nbCellByLine;
+        private int[,] _mapTmp;
+        private Cell[,] _map;
+        private Pen thinPen;
+        private SolidBrush brush;
+
+        private const int cellSize = 40;
         #endregion
 
         #region Properties
-        public int[][] Map
+        public Cell[,] Map
         {
             get
             {
@@ -25,19 +30,6 @@ namespace BattleShips
             set
             {
                 _map = value;
-            }
-        }
-
-        public int Size
-        {
-            get
-            {
-                return _size;
-            }
-
-            set
-            {
-                _size = value;
             }
         }
 
@@ -54,16 +46,42 @@ namespace BattleShips
             }
         }
 
-        public int NbCell
+        public int NbCellByLine
         {
             get
             {
-                return _nbCell;
+                return _nbCellByLine;
             }
 
             set
             {
-                _nbCell = value;
+                _nbCellByLine = value;
+            }
+        }
+
+        public int[,] MapTmp
+        {
+            get
+            {
+                return _mapTmp;
+            }
+
+            set
+            {
+                _mapTmp = value;
+            }
+        }
+
+        public int NbCellByColumn
+        {
+            get
+            {
+                return _nbCellByColumn;
+            }
+
+            set
+            {
+                _nbCellByColumn = value;
             }
         }
 
@@ -71,54 +89,109 @@ namespace BattleShips
         {
             get
             {
-                return _cellSize;
+                return cellSize;
+            }
+        }
+
+        public int PositionX
+        {
+            get
+            {
+                return _positionX;
             }
 
             set
             {
-                _cellSize = value;
+                _positionX = value;
+            }
+        }
+
+        public Pen ThinPen
+        {
+            get
+            {
+                return thinPen;
+            }
+
+            set
+            {
+                thinPen = value;
+            }
+        }
+
+        public SolidBrush Brush
+        {
+            get
+            {
+                return brush;
+            }
+
+            set
+            {
+                brush = value;
             }
         }
         #endregion
 
         #region Constructor
-        public Board(int pos, int s, int nbCase)
+        public Board(int posX, int posY, int[,] board)
         {
-            this.PositionY = pos;
-            this.Size = s;
-            this.NbCell = nbCase;
-            this.CellSize = this.Size / this.NbCell;
+            this.PositionX = posX;
+            this.PositionY = posY;
+            this.NbCellByColumn = board.GetLength(1);
+            this.NbCellByLine = board.GetLength(0);
+            this.MapTmp = board;
+
+            this.createBoard();
         }
         #endregion
 
         #region Methods
+        public void createBoard()
+        {
+            this.Map = new Cell[this.NbCellByColumn, this.NbCellByLine];
+
+            for (int y = 0; y < this.NbCellByColumn; y++)
+            {
+                for (int x = 0; x < this.NbCellByLine; x++)
+                {
+                    this.Map[y, x] = new Cell((this.CellSize * x) + (x * 2) + PositionX, (this.CellSize * y) + (y * 2) + PositionY, this.CellSize, this.CellSize, this.MapTmp[x, y], new Pen(Color.Black, 2), new SolidBrush(Color.White));
+                }
+            }
+        }
+
         public void drawGrid(PaintEventArgs e)
         {
-            // Create pen.
-            Pen blackPen = new Pen(Color.Black, 3);
-            Pen thinPen = new Pen(Color.Black, 2);
-            SolidBrush brush = new SolidBrush(Color.White);
-
-            // Create rectangle.
-            Rectangle rect = new Rectangle(this.PositionY, 20, this.Size, this.Size);
-
-            // Draw rectangle to screen.
-            e.Graphics.FillRectangle(brush, rect);
-            e.Graphics.DrawRectangle(blackPen, this.PositionY - 2, 18, this.Size + 3, this.Size + 3);
-
-            Console.WriteLine(this.CellSize);
-            //e.Graphics.DrawLine(thinPen, x, y, 200, 200);
-
-            //Draw column
-            for (int x = 0; x < this.Size; x += this.CellSize)
+            foreach (var cell in this.Map)
             {
-                e.Graphics.DrawLine(thinPen, x + this.PositionY, 20, x + this.PositionY, this.Size + 20);
+                /*if (cell.CellType == 3)
+                {
+                    this.ThinPen = new Pen(Color.Red, 2);
+                    this.Brush = new SolidBrush(Color.White);
+                }
+                else
+                {
+                    ThinPen = new Pen(Color.Black, 2);
+                    Brush = new SolidBrush(Color.White);
+                }*/
+
+                cell.draw(e);
             }
+        }
 
-            //Draw line
-            for (int y = 0; y < this.Size; y += this.CellSize)
+        public void focusedCell(MouseEventArgs e)
+        {
+            for (int y = 0; y < this.NbCellByColumn; y++)
             {
-                //e.Graphics.DrawLine(thinPen, this.PositionY, y, 200, this.Size + 20);
+                for (int x = 0; x < this.NbCellByLine; x++)
+                {
+                    if (this.Map[y, x].cursorIsOnCell(e))
+                    {
+                        //CHANGER COULEUR CADRE
+                        /*this.Map[y, x]
+                        this.ThinPen = new Pen(Color.Red, 2);*/
+                    }
+                }
             }
         }
         #endregion
