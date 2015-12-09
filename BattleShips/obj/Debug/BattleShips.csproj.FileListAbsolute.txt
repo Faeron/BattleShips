@@ -7,3 +7,4 @@ C:\Users\SEEMULLERJ_INFO\Desktop\BattleShips\BattleShips\BattleShips\obj\Debug\B
 C:\Users\SEEMULLERJ_INFO\Desktop\BattleShips\BattleShips\BattleShips\obj\Debug\BattleShips.csproj.GenerateResource.Cache
 C:\Users\SEEMULLERJ_INFO\Desktop\BattleShips\BattleShips\BattleShips\obj\Debug\BattleShips.exe
 C:\Users\SEEMULLERJ_INFO\Desktop\BattleShips\BattleShips\BattleShips\obj\Debug\BattleShips.pdb
+C:\Users\SEEMULLERJ_INFO\Desktop\BattleShips\BattleShips\BattleShips\obj\Debug\BattleShips.Form1.resources
