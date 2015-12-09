@@ -8,5 +8,16 @@ namespace BattleShips
 {
     class FileManager
     {
+        #region fields
+        #endregion
+
+        #region properties
+        #endregion
+
+        #region constructor
+        #endregion
+        
+        #region methods
+        #endregion
     }
 }
