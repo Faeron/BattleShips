@@ -1,6 +1,6 @@
 ﻿namespace BattleShips
 {
-    class Unit
+    class Player
     {
         #region Fields
         #endregion
@@ -9,7 +9,7 @@
         #endregion
 
         #region Constructor
-        public Unit()
+        public Player()
         {
 
         }
