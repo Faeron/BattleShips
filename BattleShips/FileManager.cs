@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -13,11 +14,13 @@ namespace BattleShips
         private string _filename;
         private int _boardWidth;
         private int _boardHeight;
+        private int _nbPlayers;
 
         // Default values
         private string _defaultFilename = "BN-V02-2015-12-02-15-31-32.xml";
         private int _defaultBoardWidth = 10;
         private int _defaultBoardHeight = 10;
+        private int _defaultNbPlayers = 2;
         #endregion
 
         #region properties
@@ -60,6 +63,32 @@ namespace BattleShips
             }
         }
 
+        public int NbPlayers
+        {
+            get
+            {
+                return _nbPlayers;
+            }
+
+            set
+            {
+                _nbPlayers = value;
+            }
+        }
+
+        public int DefaultNbPlayers
+        {
+            get
+            {
+                return _defaultNbPlayers;
+            }
+
+            set
+            {
+                _defaultNbPlayers = value;
+            }
+        }
+
         #endregion
 
         #region constructor
@@ -71,6 +100,7 @@ namespace BattleShips
             this.Filename = this._defaultFilename;
             this.BoardWidth = this._defaultBoardWidth;
             this.BoardHeight = this._defaultBoardHeight;
+            this.NbPlayers = this.DefaultNbPlayers;
         }
 
         /// <summary>
@@ -79,11 +109,12 @@ namespace BattleShips
         /// <param name="filename"></param>
         /// <param name="boardWidth"></param>
         /// <param name="boardHeight"></param>
-        public FileManager(string filename, int boardWidth, int boardHeight)
+        public FileManager(string filename, int boardWidth, int boardHeight, int nbPlayers)
         {
             this.Filename = filename;
             this.BoardWidth = boardWidth;
             this.BoardHeight = boardHeight;
+            this.NbPlayers = nbPlayers;
         }
         #endregion
 
@@ -160,20 +191,23 @@ namespace BattleShips
                 result = node.InnerText;
             }
             else {
-                return "ERROR";
+                return "";
             }
 
             return result;
         }
 
         
-
         /// <summary>
-        /// Gets a player board via a ".xml" formatted file
+        /// Gets a board (player or shots) via a ".xml" formatted file
         /// </summary>
         /// <param name="idPlayer"></param>
         /// <returns></returns>
-        public int[,] getPlayerBoard(int idPlayer)
+        /// 
+        /// Usage :
+        /// getBoard("TIRS", "P1")    ->  gets the position of the first player's shots.
+        /// getBoard("PLAYER", "P2")  ->  gets the position of the second player's ships.
+        public int[,] getBoard(string boardType, string idPlayer)
         {
             // Create an array for the board
             int[,] playerBoard = new int[this.BoardHeight, this.BoardWidth];
@@ -181,7 +215,7 @@ namespace BattleShips
             string selectedFileName = this.Filename;
 
             // Get the player's node with his ID
-            xmlString = this.getNode("PLATEAU-P" + idPlayer);
+            xmlString = this.getNode(boardType + "-" + idPlayer);
 
             // If we got the node
             if (xmlString != "") {
@@ -203,6 +237,36 @@ namespace BattleShips
             }
             
             return playerBoard;
+        }
+
+        public List<Player> getPlayers() {
+            // Create a list to store the players
+            List<Player> playerList = new List<Player>();
+            string regexpLine = "P\\d{1,};\\w{1,}";
+
+            // Get the player's list from the xml
+            string xmlString = this.getNode("JOUEURS");
+            
+            // If we got the node
+            if (xmlString != "")
+            {
+                // Check for matches with a regular exeption
+                Match m = Regex.Match(xmlString, regexpLine);
+                // When we find a match...
+                while (m.Success)
+                {
+                    // Add temporary player
+                    Player currentPlayer = new Player();
+                    // Separate the values with a comma
+                    string[] xmlStringArray = m.ToString().Split(';');
+                    currentPlayer.PlayerId = xmlStringArray[0];
+                    currentPlayer.PlayerName = xmlStringArray[1];
+                    playerList.Add(currentPlayer);
+                    m = m.NextMatch();
+                }
+
+            }
+            return playerList;
         }
         #endregion
     }

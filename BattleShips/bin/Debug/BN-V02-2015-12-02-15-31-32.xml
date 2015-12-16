@@ -39,8 +39,8 @@
 	# 
 	-->
 	<JOUEURS>
-	P1;Pim
-	P2;Pam
+	P1;Pim;
+	P2;Pam;
 	</JOUEURS>
 	<!--
 	# 

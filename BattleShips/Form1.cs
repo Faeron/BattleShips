@@ -16,6 +16,8 @@ namespace BattleShips
         public Form1()
         {
             InitializeComponent();
+            FileManager manager = new FileManager();
+            manager.getPlayers();
         }
     }
 }
