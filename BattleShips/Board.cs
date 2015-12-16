@@ -151,11 +151,14 @@ namespace BattleShips
         {
             this.Map = new Cell[this.NbCellByColumn, this.NbCellByLine];
 
+            Pen pen = new Pen(Color.Black, 1);
+            SolidBrush solidBrush = new SolidBrush(Color.White);
+
             for (int y = 0; y < this.NbCellByColumn; y++)
             {
                 for (int x = 0; x < this.NbCellByLine; x++)
                 {
-                    this.Map[y, x] = new Cell((this.CellSize * x) + (x * 2) + PositionX, (this.CellSize * y) + (y * 2) + PositionY, this.CellSize, this.CellSize, this.MapTmp[x, y], new Pen(Color.Black, 1), new SolidBrush(Color.White));
+                    this.Map[y, x] = new Cell((this.CellSize * x) + (x * 2) + PositionX, (this.CellSize * y) + (y * 2) + PositionY, this.CellSize, this.CellSize, this.MapTmp[x, y], pen, solidBrush);
                 }
             }
         }
