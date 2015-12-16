@@ -125,22 +125,17 @@ namespace BattleShips
         #region Methods
         public void draw(PaintEventArgs e)
         {
-            /*this.BorderColor = borderColor;
-            this.InnerColor = innercolor;*/
-
-            // Create rectangle.
             Rectangle rect = new Rectangle(this.PosY, this.PosX, this.SizeX, this.SizeX);
 
-            // Draw rectangle to screen.
             e.Graphics.FillRectangle(this.InnerColor, rect);
             e.Graphics.DrawRectangle(this.BorderColor, this.PosY, this.PosX, this.SizeX, this.SizeY);
         }
 
-        public bool cursorIsOnCell(MouseEventArgs e)
+        public bool cursorIsOnCell(MouseEventArgs mouse)
         {
-            if (e.X > this.PosX && e.X < (this.PosX + this.SizeX))
+            if (mouse.Y > this.PosX && mouse.Y < (this.PosX + this.SizeX))
             {
-                if (e.Y > this.PosY && e.Y < (this.PosY + this.SizeY))
+                if (mouse.X > this.PosY && mouse.X < (this.PosY + this.SizeY))
                 {
                     return true;
                 }

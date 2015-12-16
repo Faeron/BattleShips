@@ -155,7 +155,7 @@ namespace BattleShips
             {
                 for (int x = 0; x < this.NbCellByLine; x++)
                 {
-                    this.Map[y, x] = new Cell((this.CellSize * x) + (x * 2) + PositionX, (this.CellSize * y) + (y * 2) + PositionY, this.CellSize, this.CellSize, this.MapTmp[x, y], new Pen(Color.Black, 2), new SolidBrush(Color.White));
+                    this.Map[y, x] = new Cell((this.CellSize * x) + (x * 2) + PositionX, (this.CellSize * y) + (y * 2) + PositionY, this.CellSize, this.CellSize, this.MapTmp[x, y], new Pen(Color.Black, 1), new SolidBrush(Color.White));
                 }
             }
         }
@@ -164,33 +164,22 @@ namespace BattleShips
         {
             foreach (var cell in this.Map)
             {
-                /*if (cell.CellType == 3)
-                {
-                    this.ThinPen = new Pen(Color.Red, 2);
-                    this.Brush = new SolidBrush(Color.White);
-                }
-                else
-                {
-                    ThinPen = new Pen(Color.Black, 2);
-                    Brush = new SolidBrush(Color.White);
-                }*/
-
                 cell.draw(e);
             }
         }
 
         public void focusedCell(MouseEventArgs e)
         {
-            for (int y = 0; y < this.NbCellByColumn; y++)
+            
+            foreach (var cell in this.Map)
             {
-                for (int x = 0; x < this.NbCellByLine; x++)
+                if (cell.cursorIsOnCell(e))
                 {
-                    if (this.Map[y, x].cursorIsOnCell(e))
-                    {
-                        //CHANGER COULEUR CADRE
-                        /*this.Map[y, x]
-                        this.ThinPen = new Pen(Color.Red, 2);*/
-                    }
+                    cell.BorderColor = new Pen(Color.Red, 2);
+                }
+                else if (cell.BorderColor.Color == Color.Red)
+                {
+                    cell.BorderColor = new Pen(Color.Black, 1);
                 }
             }
         }

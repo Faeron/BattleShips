@@ -20,5 +20,10 @@ namespace BattleShips
         {
             Game.focusedCell(e);
         }
+
+        private void timer1_Tick(object sender, System.EventArgs e)
+        {
+            this.Refresh();
+        }
     }
 }

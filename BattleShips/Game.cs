@@ -82,6 +82,7 @@ namespace BattleShips
         public void focusedCell(MouseEventArgs e)
         {
             MyBoard.focusedCell(e);
+            //EnnemyBoard.focusedCell(e);
         }
         #endregion
     }
