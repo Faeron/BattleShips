@@ -16,3 +16,12 @@ C:\Users\DEBIASIL_INFO\Documents\GitHub\BattleShips\BattleShips\obj\Debug\Battle
 C:\Users\DEBIASIL_INFO\Documents\GitHub\BattleShips\BattleShips\obj\Debug\BattleShips.csproj.GenerateResource.Cache
 C:\Users\DEBIASIL_INFO\Documents\GitHub\BattleShips\BattleShips\obj\Debug\BattleShips.exe
 C:\Users\DEBIASIL_INFO\Documents\GitHub\BattleShips\BattleShips\obj\Debug\BattleShips.pdb
+C:\Users\DEBIASIL_INFO\Desktop\BattleShips-game_branch\BattleShips-game_branch\BattleShips\bin\Debug\BattleShips.exe.config
+C:\Users\DEBIASIL_INFO\Desktop\BattleShips-game_branch\BattleShips-game_branch\BattleShips\bin\Debug\BattleShips.exe
+C:\Users\DEBIASIL_INFO\Desktop\BattleShips-game_branch\BattleShips-game_branch\BattleShips\bin\Debug\BattleShips.pdb
+C:\Users\DEBIASIL_INFO\Desktop\BattleShips-game_branch\BattleShips-game_branch\BattleShips\obj\Debug\BattleShips.csprojResolveAssemblyReference.cache
+C:\Users\DEBIASIL_INFO\Desktop\BattleShips-game_branch\BattleShips-game_branch\BattleShips\obj\Debug\BattleShips.Form1.resources
+C:\Users\DEBIASIL_INFO\Desktop\BattleShips-game_branch\BattleShips-game_branch\BattleShips\obj\Debug\BattleShips.Properties.Resources.resources
+C:\Users\DEBIASIL_INFO\Desktop\BattleShips-game_branch\BattleShips-game_branch\BattleShips\obj\Debug\BattleShips.csproj.GenerateResource.Cache
+C:\Users\DEBIASIL_INFO\Desktop\BattleShips-game_branch\BattleShips-game_branch\BattleShips\obj\Debug\BattleShips.exe
+C:\Users\DEBIASIL_INFO\Desktop\BattleShips-game_branch\BattleShips-game_branch\BattleShips\obj\Debug\BattleShips.pdb

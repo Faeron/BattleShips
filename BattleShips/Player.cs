@@ -1,21 +1,54 @@
-﻿namespace BattleShips
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BattleShips
 {
-    class Player
+    public class Player
     {
-        #region Fields
+        #region fields
+        private string _playerId;
+        private string _playerName;
         #endregion
 
-        #region Properties
+        #region properties
+        public string PlayerId
+        {
+            get
+            {
+                return _playerId;
+            }
+
+            set
+            {
+                _playerId = value;
+            }
+        }
+
+        public string PlayerName
+        {
+            get
+            {
+                return _playerName;
+            }
+
+            set
+            {
+                _playerName = value;
+            }
+        }
         #endregion
 
-        #region Constructor
+        #region constructor
         public Player()
         {
 
         }
         #endregion
 
-        #region Methods
+        #region methods
         #endregion
     }
 }
