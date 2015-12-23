@@ -5,8 +5,8 @@ namespace BattleShips
     class Game
     {
         #region Fields
-        Board _myBoard = new Board(20, 400, 10);
-        Board _ennemyBoard = new Board(440, 400, 10);
+        Board _myBoard;
+        Board _ennemyBoard;
         #endregion
 
         #region Properties
@@ -40,7 +40,35 @@ namespace BattleShips
         #region Constructor
         public Game()
         {
-            
+            int[,] mapTmp = new int[10, 10] {
+                 { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 },
+                 { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 },
+                 { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 },
+                 { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 },
+                 { 1, 2, 2, 2, 3, 2, 1, 2, 1, 2 },
+                 { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 },
+                 { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 },
+                 { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 },
+                 { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 },
+                 { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 }
+            };
+
+            this.MyBoard = new Board(20, 20, mapTmp);
+
+            int[,] mapEnnemyTmp = new int[10, 10] {
+                 { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 },
+                 { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 },
+                 { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 },
+                 { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 },
+                 { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 },
+                 { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 },
+                 { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 },
+                 { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 },
+                 { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 },
+                 { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 }
+            };
+
+            this.EnnemyBoard = new Board(20, 450, mapEnnemyTmp);
         }
         #endregion
 
@@ -49,6 +77,12 @@ namespace BattleShips
         {
             MyBoard.drawGrid(e);
             EnnemyBoard.drawGrid(e);
+        }
+
+        public void focusedCell(MouseEventArgs e)
+        {
+            MyBoard.focusedCell(e);
+            //EnnemyBoard.focusedCell(e);
         }
         #endregion
     }
